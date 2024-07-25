@@ -14,6 +14,7 @@ public class MazeWithObstacles {
         };
         System.out.println(pathObstacles("",board,0,0));
         System.out.println(pathObstacles2("",board,0,0));
+        System.out.println(pathCountObstacle(board,0,0));
     }
 
     // When there is any obstacle in the cell
@@ -53,7 +54,7 @@ public class MazeWithObstacles {
     }
 
     //Another possible code
-    //Here I'm going to all possible cells and returning no path when it is obstacle cell
+    //Here I'm going to all possible cells and returning no path when it is obstacle
     public static List<String> pathObstacles2(String p,boolean[][] maze,int row,int col){
         List<String> list = new ArrayList<>();
 
@@ -72,5 +73,25 @@ public class MazeWithObstacles {
         }
 
         return list;
+    }
+
+    //Here we are finding the count of no of paths in which if we reach obstacle there is no path
+    public static int pathCountObstacle(boolean[][] maze,int row,int col){
+        int count = 0;
+
+        if(row==maze.length-1 && col==maze[0].length-1){
+            return 1;
+        }
+        if(!maze[row][col]){
+            return 0;
+        }
+        if(row<maze.length-1 ){
+           count += pathCountObstacle(maze,row+1,col);
+        }
+        if(col<maze[0].length-1){
+            count += pathCountObstacle(maze,row,col+1);
+        }
+
+        return count;
     }
 }
