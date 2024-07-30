@@ -8,13 +8,14 @@ public class MazeWithObstacles {
 
         System.out.println(mazePathObstacle("",0,0,1,1));
         boolean[][] board = new boolean[][]{
-            {true,true,true},
-            {true,false,true},
-            {true,true,true}
+                {true,true,true},
+                {true,false,true},
+                {true,true,true}
         };
         System.out.println(pathObstacles("",board,0,0));
         System.out.println(pathObstacles2("",board,0,0));
         System.out.println(pathCountObstacle(board,0,0));
+
     }
 
     // When there is any obstacle in the cell
@@ -63,13 +64,13 @@ public class MazeWithObstacles {
             return list;
         }
         if(!maze[row][col]){
-           return null;
+           return new ArrayList<String>();
         }
         if(row<maze.length-1 ){
-            list.addAll(pathObstacles(p+'D',maze,row+1,col));
+            list.addAll(pathObstacles2(p+'D',maze,row+1,col));
         }
         if(col<maze[0].length-1){
-            list.addAll(pathObstacles(p+'R',maze,row,col+1));
+            list.addAll(pathObstacles2(p+'R',maze,row,col+1));
         }
 
         return list;
@@ -94,4 +95,6 @@ public class MazeWithObstacles {
 
         return count;
     }
+
+
 }
