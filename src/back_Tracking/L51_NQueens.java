@@ -194,6 +194,6 @@ public class L51_NQueens {
         return list;
     }
 
-    //Solution 2 which is better approach
+
 
 }
