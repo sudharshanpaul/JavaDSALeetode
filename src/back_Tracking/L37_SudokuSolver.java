@@ -20,7 +20,7 @@ public class L37_SudokuSolver {
             System.out.println();
         }
     }
-
+//When a choice can effect future answers use backtracking
     public static void solver(char[][] board,int row,int col){
         if(row==board.length-1 && col == board[0].length){
             for(char[] arr:board){
@@ -77,12 +77,7 @@ public class L37_SudokuSolver {
 
     public static boolean isSafe(char[][] board,int row,int col,char digit){
         for(int i=0;i<board.length;i++){
-            if(board[i][col]==digit){
-                return false;
-            }
-        }
-        for(int i=0;i<board[0].length;i++){
-            if(board[row][i]==digit){
+            if(board[i][col]==digit || board[row][i]==digit){
                 return false;
             }
         }
