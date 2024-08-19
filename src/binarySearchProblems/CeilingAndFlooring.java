@@ -10,6 +10,9 @@ public class CeilingAndFlooring {
     // For a given sorted array ceiling of a number means smallest number which is greater than or equals to the
     //target element
     public static int ceilingNumber(int[] array,int target){
+        if(target>array[array.length-1]){
+            return -1;
+        }
         int start = 0;
         int end = array.length-1;
         while(start<=end){
@@ -28,6 +31,9 @@ public class CeilingAndFlooring {
 
     //Floor of a number: Greatest number that is smaller or equal to that number
     public static int floorNumber(int[] array,int target){
+        if(target<array[0]){
+            return -1;
+        }
         int start = 0;
         int end = array.length-1;
         while(start<=end){
