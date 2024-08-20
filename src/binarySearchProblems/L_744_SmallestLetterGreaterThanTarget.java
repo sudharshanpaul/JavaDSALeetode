@@ -6,7 +6,7 @@ public class L_744_SmallestLetterGreaterThanTarget {
         System.out.println(nextGreatestLetter(letters,'z'));
     }
 
-    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/submissions/1361358008/   
+    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/submissions/1361358008/
     public static char nextGreatestLetter(char[] letters, char target) {
         int start = 0;
         int end = letters.length-1;
