@@ -2,8 +2,8 @@ package binarySearchProblems;
 
 public class L_33_SearchInRotatedSortedArray {
     public static void main(String[] args) {
-          int[] nums = {2,9,2,2,2,2};
-        System.out.println(search(nums,9));
+          int[] nums = {1,2,3,4,5,6,7,8};
+        System.out.println(search(nums,7));
  //         System.out.println(pivot(nums));
     }
 
@@ -33,7 +33,7 @@ public class L_33_SearchInRotatedSortedArray {
     }
 
     public static int search2(int nums[],int target){
-        int pivot = findPivot(nums);
+        int pivot = pivot(nums);
         if(pivot==-1){
             //Just do normal binary Search because it is not Rotated
             return binarySearch(nums,0, nums.length-1,target);
@@ -71,19 +71,20 @@ public class L_33_SearchInRotatedSortedArray {
 
         return -1;
     }
+
     public static int pivot(int[] nums){
         int start = 0;
         int end = nums.length-1;
         if(nums[end]>nums[start]){
             return end;
         }
-        while(start!=end){
+        while(start<=end){
             int mid = start + (end-start)/2;
             if(nums[mid]<nums[mid+1]){
                 return mid;
             }
             if(nums[mid]>=nums[start]){
-                start = mid;
+                start = mid+1;
             }else{
                 end = mid-1;
             }

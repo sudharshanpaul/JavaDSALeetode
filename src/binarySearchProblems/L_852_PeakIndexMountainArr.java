@@ -12,7 +12,7 @@ public class L_852_PeakIndexMountainArr {
         int end = arr.length-1;
         while(start!=end){
             int mid = start + (end-start)/2;
-            if(arr[mid]>=arr[mid+1]){
+            if(arr[mid]>arr[mid+1]){
                 end = mid;      //As mid is greater there is a possibility that it is the peak
             }else{
                 start = mid+1;  // As mid is smaller than the next element so peak should be in the second part
