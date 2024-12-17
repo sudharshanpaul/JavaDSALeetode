@@ -6,13 +6,26 @@ public class Cyclic_Sort {
     // When given numbers are range from 1 to N use cyclic Sort
     public static void main(String[] args) {
         int[] arr = {5,4,3,2,1};
-        cyclicSort(arr);
+        sortArray(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     //After sorting
     // 1, 2, 3, 4, 5...> index = value-1 because index value starts from 0
 
+    public static void sortArray(int[] arr){
+        int i=0;
+        while(i<arr.length){
+            int correct = arr[i]-1;
+            if(arr[i]!=arr[correct]){
+                swap(arr,i,correct);
+            }else{
+                i++;
+            }
+        }
+    }
+
+    // This will work for [m,n]
     public static void cyclicSort(int[] arr){
         int min_value = min_of_arr(arr);
         int i=0;
@@ -24,6 +37,8 @@ public class Cyclic_Sort {
             }
         }
     }
+
+
 
     public static void cyclicSort2(int[] arr){
         int min_value = min_of_arr(arr);
