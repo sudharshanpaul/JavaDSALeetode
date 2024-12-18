@@ -7,7 +7,26 @@ public class L287_Find_Duplicate {
     }
 
     // https://leetcode.com/problems/find-the-duplicate-number/description/
-    public static int findDuplicate(int[] nums) {
+
+    public static int findDuplicate(int[] nums){
+        int i=0;
+        while(i<nums.length){
+            if(nums[i]!=i+1){
+                int correct = nums[i]-1;
+                if(nums[i] != nums[correct]){
+                    swap(nums,i,correct);
+                }else{
+                    return nums[i];
+                }
+            }else{
+                i++;
+            }
+        }
+        return -1;
+    }
+
+
+    public static int findDuplicate1(int[] nums) {
         int i = 0;
         while(i < nums.length){
             int correct = nums[i] - 1;
