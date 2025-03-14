@@ -10,6 +10,7 @@ public class L14_LongestCommonPrefix {
         System.out.println(longestCommonPrefix(strs));
     }
 
+
     //https://leetcode.com/problems/longest-common-prefix/
     // Generally this takes less amount of time Max time is for Sorting which is 0(nlogn)
 
