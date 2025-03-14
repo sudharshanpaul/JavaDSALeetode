@@ -1,6 +1,6 @@
 package Linked_List.Theory_LL;
 
-public class Main {
+public class SingleLL_Main {
 
     public static void main(String[] args) {
         LL list = new LL();
