@@ -1,4 +1,4 @@
-package Linked_List.Theory_LL;
+package Linked_List.Theory_LL.Double_LL;
 
 public class DoubleLL_Main {
 

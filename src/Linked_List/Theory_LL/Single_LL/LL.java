@@ -1,4 +1,4 @@
-package Linked_List.Theory_LL;
+package Linked_List.Theory_LL.Single_LL;
 
 public class LL {
 
@@ -66,6 +66,55 @@ public class LL {
         size++;
     }
 
+    // Insert Using Recursion
+
+    public void insertUsingRecursion(int value,int index){
+        Node node = new Node(value);
+        if(index==0){
+            node.next = head;
+            head = node;
+            if(tail == null){
+                tail = head;
+            }
+            size++;
+            return;
+        }
+        Node req = helperInsertion(head,index-1);
+        if(req == null){
+            System.out.println("Insertion is not possible");
+            return;
+        }
+
+        node.next = req.next;
+        req.next = node;
+        size++;
+
+    }
+    private Node helperInsertion(Node node, int index){
+        if(index == 0){
+            return node;
+        }
+        if(node == null){
+            return null;
+        }
+        return helperInsertion(node.next,index-1);
+    }
+
+    public void insertRec(int value,int index){
+        head = insertRec(value,index,head);
+    }
+
+    private Node insertRec(int value,int index,Node node){
+        if(index == 0){
+            Node tempNode = new Node(value,node);
+            size++;
+            return tempNode;
+        }
+
+        node.next = insertRec(value,index-1,node.next);
+        return node;
+    }
+
     public int deleteFirst(){
         int value = head.value;
         head = head.next;
@@ -76,7 +125,7 @@ public class LL {
         return value;
     }
 
-    public Node getReference(int index){
+    private Node getReference(int index){
         Node node = head;
         for (int i = 0; i < index; i++) {
             node = node.next;
@@ -84,7 +133,7 @@ public class LL {
         return node;
     }
 
-    public Node findNode(int value){
+    private Node findNode(int value){
         Node temp = head;
         while( temp != null ){
             if(temp.value == value){

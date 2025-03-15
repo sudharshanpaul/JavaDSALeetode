@@ -1,4 +1,4 @@
-package Linked_List.Theory_LL;
+package Linked_List.Theory_LL.Single_LL;
 
 public class SingleLL_Main {
 
@@ -15,6 +15,10 @@ public class SingleLL_Main {
         System.out.println(list.deleteLast());
         list.display();
         System.out.println(list.delete(2));
+        list.display();
+        list.insertUsingRecursion(1,3);
+        list.display();
+        list.insertRec(88,2);
         list.display();
     }
 }
