@@ -27,4 +27,24 @@ public class L141_LinkedListCycle {
 
         return false;
     }
+
+    // Finding the length of the Cycle
+    public static int findLenCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){
+                int count = 0;
+                do{
+                    slow = slow.next;
+                    count++;
+                }while(fast != slow);
+                return count;
+            }
+        }
+
+        return 0;
+    }
 }
