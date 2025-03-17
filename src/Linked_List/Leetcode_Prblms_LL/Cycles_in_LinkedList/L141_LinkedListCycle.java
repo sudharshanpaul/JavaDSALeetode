@@ -1,4 +1,5 @@
-package Linked_List.Leetcode_Prblms_LL;
+package Linked_List.Leetcode_Prblms_LL.Cycles_in_LinkedList;
+
 
 public class L141_LinkedListCycle {
 

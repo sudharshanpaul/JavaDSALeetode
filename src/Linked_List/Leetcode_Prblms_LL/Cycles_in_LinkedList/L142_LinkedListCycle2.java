@@ -1,6 +1,5 @@
-package Linked_List.Leetcode_Prblms_LL;
+package Linked_List.Leetcode_Prblms_LL.Cycles_in_LinkedList;
 
-import java.util.List;
 
 public class L142_LinkedListCycle2 {
 
