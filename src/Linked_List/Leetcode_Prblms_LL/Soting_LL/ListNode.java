@@ -1,4 +1,4 @@
-package Linked_List.Soting_LL;
+package Linked_List.Leetcode_Prblms_LL.Soting_LL;
 
 public class ListNode {
 

@@ -1,6 +1,4 @@
-package Linked_List.Soting_LL;
-
-import java.util.List;
+package Linked_List.Leetcode_Prblms_LL.Soting_LL;
 
 public class L148_SortList {
 
