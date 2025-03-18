@@ -16,9 +16,6 @@ public class L876Middle_of_List {
             fast = fast.next.next;
         }
 
-        if(fast == null){
-            return slow;
-        }
-        return slow.next;
+        return slow;
     }
 }
