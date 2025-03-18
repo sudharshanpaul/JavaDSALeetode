@@ -20,5 +20,9 @@ public class SingleLL_Main {
         list.display();
         list.insertRec(88,2);
         list.display();
+        list.reverseLL();
+        list.display();
+        list.reverseLLIter();
+        list.display();
     }
 }

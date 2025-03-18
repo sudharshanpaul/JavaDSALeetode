@@ -170,6 +170,43 @@ public class LL {
 
     }
 
+    public void reverseLL(){
+        head = reverseLL(null,head,head);
+    }
+
+    private Node reverseLL(Node prev, Node cur, Node next){
+        if(next == null){
+            return prev;
+        }
+        next = next.next;
+        cur.next = prev;
+        return reverseLL(cur,next,next);
+    }
+
+    public void reverseLLIter(){
+        Node prev = null;
+        Node cur = head;
+        Node next = head;
+        while(next != null){
+            next = next.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        head = prev;
+    }
+
+    public void reverse(Node node){
+        if(node == tail){
+            head = tail;
+            return;
+        }
+        reverse(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+
     private static class Node{
         private final int value;
         private Node next;
