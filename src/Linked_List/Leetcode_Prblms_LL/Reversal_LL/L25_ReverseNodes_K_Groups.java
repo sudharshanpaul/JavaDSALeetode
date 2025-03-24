@@ -59,20 +59,4 @@ public class L25_ReverseNodes_K_Groups {
 
         return prev;
     }
-
-
-    // 2nd approach... Not the second approach but some what different
-
-    public ListNode reverseKGroup2(ListNode head, int k){
-        if(k<=1 && head==null){
-            return head;
-        }
-        ListNode ans = new ListNode();
-        while(true){
-            ListNode start = head;
-            for (int i = 0; i < k; i++) {
-                head = head.next;
-            }
-        }
-    }
 }
