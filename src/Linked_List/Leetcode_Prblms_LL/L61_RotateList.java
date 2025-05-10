@@ -29,6 +29,27 @@ public class L61_RotateList {
         return head;
     }
 
+    public ListNode rotateRight1(ListNode head, int k){
+        if(head == null || head.next == null || k==0){
+            return head;
+        }
+        k = findLength(head) - (k % findLength(head));
+        ListNode last = head;
+        ListNode lastprev = null;
+        ListNode temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        temp.next = head;
+        for (int i = 0; i < k; i++) {
+            lastprev = last;
+            last = last.next;
+        }
+        lastprev.next = null;
+        head = last;
+        return head;
+    }
+
     public int findLength(ListNode head){
         ListNode temp = head;
         int length = 0;
