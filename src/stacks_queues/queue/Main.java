@@ -7,7 +7,34 @@ import java.util.Queue;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws QueueException {
+        CustomQueue queue = new CustomQueue(5);
+        queue.insert(0);
+        queue.insert(1);
+        queue.insert(2);
+        queue.insert(3);
+        queue.insert(4);
+
+        queue.display();
+        System.out.println(queue.remove());
+        queue.display();
+
+        System.out.println("Circular Queue");
+        CustomCircularQueue circularQueue = new CustomCircularQueue(5);
+        circularQueue.insert(0);
+        circularQueue.insert(1);
+        circularQueue.insert(2);
+        circularQueue.insert(3);
+        circularQueue.insert(4);
+
+        circularQueue.display();
+        System.out.println(circularQueue.remove());
+        circularQueue.insert(99);
+        circularQueue.display();
+
+    }
+
+    public static void inBuilt(){
         Queue<Integer> queue = new LinkedList<>();
         queue.add(7);
         queue.add(15);
@@ -23,6 +50,5 @@ public class Main {
         deque.addFirst(23);
         deque.addLast(56);
         System.out.println(deque.peek());
-
     }
 }
