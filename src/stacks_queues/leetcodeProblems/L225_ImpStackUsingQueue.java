@@ -12,6 +12,7 @@ public class L225_ImpStackUsingQueue {
     }
 }
 
+// Insertion Efficient
 class MyStack {
     Queue<Integer> first;
     Queue<Integer> second;
@@ -51,6 +52,44 @@ class MyStack {
     }
 
     public boolean empty() {
+        return first.isEmpty();
+    }
+}
+
+class MyStackDeletionEfficient{
+    Queue<Integer> first;
+    Queue<Integer> second;
+    MyStackDeletionEfficient(){
+        first = new LinkedList<>();
+        second = new LinkedList<>();
+    }
+
+    public void push(int x){
+        int len = first.size();
+        for (int i = 0; i < len; i++) {
+            second.add(first.remove());
+        }
+        first.add(x);
+        for (int i = 0; i < len; i++) {
+            first.add(second.remove());
+        }
+    }
+    public int pop(){
+        return first.remove();
+    }
+    public int peek(){
+        int ans = first.remove();
+        int len = first.size();
+        for (int i = 0; i < len; i++) {
+            second.add(first.remove());
+        }
+        first.add(ans);
+        for (int i = 0; i < len; i++) {
+            first.add(second.remove());
+        }
+        return ans;
+    }
+    public boolean isEmpty(){
         return first.isEmpty();
     }
 }

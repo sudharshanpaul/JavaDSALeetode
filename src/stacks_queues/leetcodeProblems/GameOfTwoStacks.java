@@ -68,6 +68,26 @@ public class GameOfTwoStacks {
         return finalAns;
     }
 
+    public static int helper3(Stack<Integer> first, Stack<Integer> second, int count, int MaxSum, int sum){
+        if(sum > MaxSum){
+            return count;
+        }
+        int finalAns = count;
+        if(!first.isEmpty()){
+            int num = first.pop();
+            int ans1 = helper3(first, second, count+2, MaxSum, sum+num);
+            finalAns = Math.max(finalAns, ans1);
+            first.push(num);
+        }
+        if(!second.isEmpty()){
+            int num = second.pop();
+            int ans2 = helper3(first,second, count+1, MaxSum, sum+num);
+            finalAns = Math.max(finalAns,ans2);
+            second.push(num);
+        }
+        return finalAns;
+    }
+
 
 
 
