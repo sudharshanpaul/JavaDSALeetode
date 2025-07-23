@@ -21,4 +21,27 @@ public class L206_ReverseLinkedList {
         head = prev;
         return head;
     }
+
+    public ListNode reverseList1(ListNode head) {
+        // ListNode prev = null;
+        // ListNode cur = head;
+        // while(cur != null){
+        //     ListNode next = cur.next;
+        //     cur.next = prev;
+        //     prev = cur;
+        //     cur = next;
+        // }
+        // return prev;
+        return helper(null, head);
+    }
+    public ListNode helper(ListNode prev, ListNode cur){
+        if(cur == null){
+            return prev;
+        }
+        ListNode ans;
+        ListNode next = cur.next;
+        cur.next = prev;
+        ans = helper(cur, next);
+        return ans;
+    }
 }
