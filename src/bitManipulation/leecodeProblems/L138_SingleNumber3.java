@@ -9,29 +9,33 @@ public class L138_SingleNumber3 {
         System.out.println(Arrays.toString(singleNumber(nums)));
     }
 
-    public static int[] singleNumber(int[ ] nums) {
-        int ones = 0;
-        int twos = 0;
-        int i=0;
-        int[] ans = new int[2];
+    public static int[] singleNumber(int[] nums) {
+        int totalXor = 0;
         for(int num: nums){
-            int prevOne = ones;
-            int prevTwo = twos;
-            ones = (ones ^ num) & ~twos;
-            twos = (twos ^ num) & ~ones;
-            if(ones != prevOne && prevTwo == twos){
-                ans[i] = num;
-                i = (i+1) % 2;
-            }else if(prevTwo != twos){
-                i = findIndex(ans,num);
+            totalXor = totalXor ^ num;
+        }
+
+        int bucket1 = 0;
+        int bucket2 = 0;
+        int firstDifferBit = findFirstBitDifference(totalXor);
+
+        for(int num : nums){
+            if(isSet(num, firstDifferBit)!=0){
+                bucket1 = bucket1 ^ num;
+            }else{
+                bucket2 = bucket2 ^ num;
             }
         }
 
-        return ans;
+        return new int[]{bucket1, bucket2};
+
     }
 
-    public static int findIndex(int[] ans, int num){
-        if(ans[0] == num) return 0;
-        return 1;
+    public static int findFirstBitDifference(int num){
+        return (num & (num - 1)) ^ num;
+    }
+
+    public static int isSet(int num, int posNum){
+        return num & posNum;
     }
 }
