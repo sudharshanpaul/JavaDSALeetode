@@ -1,4 +1,4 @@
-package My_Trees.leetcode_problems;
+package My_Trees.leetcode_problems.BFS;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

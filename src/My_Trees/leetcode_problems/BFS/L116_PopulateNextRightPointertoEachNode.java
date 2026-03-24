@@ -1,4 +1,6 @@
-package My_Trees.leetcode_problems;
+package My_Trees.leetcode_problems.BFS;
+
+import My_Trees.leetcode_problems.Node;
 
 import java.util.ArrayDeque;
 
