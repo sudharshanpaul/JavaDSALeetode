@@ -28,17 +28,7 @@ public class L314_BinaryTreeVerticalOrderTraversal {
             return;
         }
         if(map.containsKey(col)){
-            boolean flag = true;
-            for(int i=0; i<map.get(col).size(); i++){
-                if(map.get(col).get(i) > node.val){
-                    map.get(col).add(i, node.val);
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag){
-                map.get(col).add(node.val);
-            }
+            map.get(col).add(node.val);
         }else{
             List<Integer> list = new ArrayList<>();
             list.add(node.val);
