@@ -1,5 +1,6 @@
 package My_Trees.leetcode_problems.DFS;
 
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class L230_KSmallest_in_BST {
@@ -69,5 +70,15 @@ public class L230_KSmallest_in_BST {
 
         return right;
 
+    }
+
+    public void helper2(TreeNode node, PriorityQueue<Integer> minHeap, int k){
+        if(node == null){
+            return;
+        }
+
+        helper2(node.left, minHeap, k);
+        minHeap.offer(node.val);
+        helper2(node.right, minHeap, k);
     }
 }
