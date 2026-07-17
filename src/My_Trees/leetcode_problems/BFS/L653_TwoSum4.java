@@ -12,7 +12,7 @@ public class L653_TwoSum4 {
     }
 
     public boolean findTarget(TreeNode root, int k) {
-
+        return helper(root, new HashSet<Integer>(), k);
     }
 
     public boolean helper(TreeNode node, Set<Integer> set, int required){
