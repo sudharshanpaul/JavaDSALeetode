@@ -1,14 +1,13 @@
 package My_Graphs;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class topologicalSort {
 
     static void main(String[] args) {
         int[][] graph = {{},{},{3},{1},{0,1},{0,2}};
         System.out.println(topologicalSort(graph));
+        System.out.println(topoSort2(graph));
     }
 
     public static List<Integer> topologicalSort(int[][] graph){
@@ -40,6 +39,35 @@ public class topologicalSort {
         }
 
         stack.push(node);
+    }
+
+    public static List<Integer> topoSort2(int[][] graph){
+        int[] indegree = new int[graph.length];
+        List<Integer> ans = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0; i<graph.length; i++){
+            for(Integer nei: graph[i]){
+                indegree[nei]++;
+            }
+        }
+
+        for(int i=0; i<indegree.length; i++){
+            if(indegree[i] == 0){
+                queue.offer(i);
+            }
+        }
+
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            ans.add(node);
+            for(int neighbour: graph[node]) {
+                if (--indegree[neighbour] == 0) {
+                    queue.offer(neighbour);
+                }
+            }
+        }
+
+        return ans;
     }
 
 
