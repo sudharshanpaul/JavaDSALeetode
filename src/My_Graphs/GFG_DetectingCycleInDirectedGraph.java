@@ -1,7 +1,9 @@
 package My_Graphs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class GFG_DetectingCycleInDirectedGraph {
 
@@ -45,5 +47,41 @@ public class GFG_DetectingCycleInDirectedGraph {
         }
         pathVisited[node] = false;
         return ans;
+    }
+
+    public boolean isCyclicBFS(int V, int[][] edges) {
+        // code here
+        List<List<Integer>> graph = new ArrayList<>();
+        int[] indegree = new int[V];
+        Queue<Integer> queue = new LinkedList<>();
+        List<Integer> ans = new ArrayList<>();
+        for(int i=0; i< V; i++){
+            graph.add(new ArrayList<Integer>());
+        }
+        for(int[] edge: edges){
+            graph.get(edge[0]).add(edge[1]);
+            indegree[edge[1]]++;
+        }
+
+        for(int i=0; i<V; i++){
+            if(indegree[i] == 0){
+                queue.offer(i);
+            }
+        }
+
+        while(!queue.isEmpty()){
+            int node = queue.poll();
+            ans.add(node);
+
+            for(Integer neighbour: graph.get(node)){
+                indegree[neighbour]--;
+                if(indegree[neighbour] == 0){
+                    queue.offer(neighbour);
+                }
+            }
+        }
+
+        return ans.size() != V;
+
     }
 }
